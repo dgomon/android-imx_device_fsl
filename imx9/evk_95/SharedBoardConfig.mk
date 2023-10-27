@@ -253,4 +253,4 @@ PRODUCT_IMX_TRUSTY := true
 
 # -------@block_storage-------
 # the bootloader image used in dual-bootloader OTA
-BOARD_OTA_BOOTLOADERIMAGE := bootloader-imx8mp-trusty-dual.img
+#BOARD_OTA_BOOTLOADERIMAGE := bootloader-imx8mp-trusty-dual.img
