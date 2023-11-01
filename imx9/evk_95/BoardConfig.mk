@@ -66,7 +66,7 @@ else
   endif
 endif
 
-BOARD_PREBUILT_DTBOIMAGE := $(OUT_DIR)/target/product/$(PRODUCT_DEVICE)/dtbo-imx8mp-revb4.img
+BOARD_PREBUILT_DTBOIMAGE := $(OUT_DIR)/target/product/$(PRODUCT_DEVICE)/dtbo-imx95.img
 
 BOARD_USES_METADATA_PARTITION := true
 BOARD_ROOT_EXTRA_FOLDERS += metadata
@@ -130,7 +130,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(IMX_DEVICE_PATH)/bluetooth
 BOARD_USE_SENSOR_FUSION := true
 
 # -------@block_kernel_bootimg-------
-BOARD_KERNEL_BASE := 0x40400000
+BOARD_KERNEL_BASE := 0x90400000
 
 CMASIZE=1184M
 # NXP default config
@@ -165,81 +165,7 @@ ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
 BOARD_BOOTCONFIG += androidboot.vendor.sysrq=1
 endif
 
-ifeq ($(TARGET_USE_DYNAMIC_PARTITIONS),true)
-  ifeq ($(IMX_NO_PRODUCT_PARTITION),true)
-    TARGET_BOARD_DTS_CONFIG := imx8mp:imx8mp-evk-no-product.dtb
-  else
-    # Default dual os08a20
-    TARGET_BOARD_DTS_CONFIG := imx8mp:imx8mp-evk-dual-os08a20.dtb
-    # os08a20 + ov5640
-    TARGET_BOARD_DTS_CONFIG += imx8mp-os08a20-ov5640:imx8mp-evk-os08a20-ov5640.dtb
-    # Only os08a20
-    TARGET_BOARD_DTS_CONFIG += imx8mp-os08a20:imx8mp-evk-os08a20.dtb
-    # Dual basler
-    TARGET_BOARD_DTS_CONFIG += imx8mp-dual-basler:imx8mp-evk-dual-basler.dtb
-    # basler + ov5640
-    TARGET_BOARD_DTS_CONFIG += imx8mp-basler-ov5640:imx8mp-evk-basler-ov5640.dtb
-    # Only basler
-    TARGET_BOARD_DTS_CONFIG += imx8mp-basler:imx8mp-evk-basler.dtb
-    # Only ov5640
-    TARGET_BOARD_DTS_CONFIG += imx8mp-ov5640:imx8mp-evk.dtb
-    # Used to support mcu image
-    ifeq ($(POWERSAVE),true)
-    TARGET_BOARD_DTS_CONFIG += imx8mp-rpmsg:imx8mp-evk-hifiberry-dacpp-m-rpmsg.dtb
-    else
-    TARGET_BOARD_DTS_CONFIG += imx8mp-rpmsg:imx8mp-evk-rpmsg.dtb
-    TARGET_BOARD_DTS_CONFIG += imx8mp-rpmsg-revb4:imx8mp-evk-revb4-rpmsg.dtb
-    endif
-    # Support LVDS interface
-    TARGET_BOARD_DTS_CONFIG += imx8mp-lvds:imx8mp-evk-it6263-lvds-dual-channel.dtb
-    # Support LVDS panel
-    TARGET_BOARD_DTS_CONFIG += imx8mp-lvds-panel:imx8mp-evk-jdi-wuxga-lvds-panel.dtb
-    # Support rm67199 MIPI panel
-    TARGET_BOARD_DTS_CONFIG += imx8mp-mipi-panel:imx8mp-evk-rm67199.dtb
-    # Support rm67191 MIPI panel
-    TARGET_BOARD_DTS_CONFIG += imx8mp-mipi-panel-rm67191:imx8mp-evk-rm67191.dtb
-    # Support sof
-    TARGET_BOARD_DTS_CONFIG += imx8mp-sof:imx8mp-evk-sof-wm8960.dtb
-    # Support sof on revb4
-    TARGET_BOARD_DTS_CONFIG += imx8mp-sof-revb4:imx8mp-evk-revb4-sof-wm8962.dtb
-    ifeq ($(POWERSAVE),true)
-    #Used to support powersave
-    TARGET_BOARD_DTS_CONFIG += imx8mp-powersave:imx8mp-evk-powersave.dtb
-    TARGET_BOARD_DTS_CONFIG += imx8mp-powersave-revb4:imx8mp-evk-revb4-powersave.dtb
-    #Used to support powersave and mcu image
-    TARGET_BOARD_DTS_CONFIG += imx8mp-powersave-non-rpmsg:imx8mp-evk-powersave-non-rpmsg.dtb
-    TARGET_BOARD_DTS_CONFIG += imx8mp-powersave-non-rpmsg-revb4:imx8mp-evk-revb4-powersave-non-rpmsg.dtb
-    endif
-    # Default dual os08a20 on revb4
-    TARGET_BOARD_DTS_CONFIG += imx8mp-revb4:imx8mp-evk-revb4-dual-os08a20.dtb
-    # os08a20 + ov5640 on revb4
-    TARGET_BOARD_DTS_CONFIG += imx8mp-os08a20-ov5640-revb4:imx8mp-evk-revb4-os08a20-ov5640.dtb
-    # Only os08a20 on revb4
-    TARGET_BOARD_DTS_CONFIG += imx8mp-os08a20-revb4:imx8mp-evk-revb4-os08a20.dtb
-    # Dual basler on revb4
-    TARGET_BOARD_DTS_CONFIG += imx8mp-dual-basler-revb4:imx8mp-evk-revb4-dual-basler.dtb
-    # basler + ov5640 on revb4
-    TARGET_BOARD_DTS_CONFIG += imx8mp-basler-ov5640-revb4:imx8mp-evk-revb4-basler-ov5640.dtb
-    # Only basler on revb4
-    TARGET_BOARD_DTS_CONFIG += imx8mp-basler-revb4:imx8mp-evk-revb4-basler.dtb
-    # Only ov5640 on revb4
-    TARGET_BOARD_DTS_CONFIG += imx8mp-ov5640-revb4:imx8mp-evk-revb4.dtb
-    # Support LVDS interface on revb4
-    TARGET_BOARD_DTS_CONFIG += imx8mp-lvds-revb4:imx8mp-evk-revb4-it6263-lvds-dual-channel.dtb
-    # Support LVDS panel on revb4
-    TARGET_BOARD_DTS_CONFIG += imx8mp-lvds-panel-revb4:imx8mp-evk-revb4-jdi-wuxga-lvds-panel.dtb
-    # Support rm67199 MIPI panel on revb4
-    TARGET_BOARD_DTS_CONFIG += imx8mp-mipi-panel-revb4:imx8mp-evk-revb4-rm67199.dtb
-    # Support rm67191 MIPI panel on revb4
-    TARGET_BOARD_DTS_CONFIG += imx8mp-mipi-panel-rm67191-revb4:imx8mp-evk-revb4-rm67191.dtb
-  endif
-else # no dynamic parition feature
-  ifeq ($(IMX_NO_PRODUCT_PARTITION),true)
-    TARGET_BOARD_DTS_CONFIG := imx8mp:imx8mp-evk-no-product-no-dynamic_partition.dtb
-  else
-    TARGET_BOARD_DTS_CONFIG := imx8mp:imx8mp-evk-no-dynamic_partition.dtb
-  endif
-endif
+TARGET_BOARD_DTS_CONFIG := imx95:imx95-19x19-evk.dtb
 
 ALL_DEFAULT_INSTALLED_MODULES += $(BOARD_VENDOR_KERNEL_MODULES)
 
