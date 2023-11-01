@@ -489,14 +489,6 @@ ifeq ($(LOW_MEMORY),true)
 $(call inherit-product, build/target/product/go_defaults.mk)
 endif
 
-# -------@block_neural_network-------
-
-# Neural Network HAL and lib
-PRODUCT_PACKAGES += \
-    libovxlib \
-    libnnrt \
-    android.hardware.neuralnetworks@1.3-service-vsi-npu-server
-
 # Tensorflow lite camera demo
 PRODUCT_PACKAGES += \
                     tflitecamerademo
