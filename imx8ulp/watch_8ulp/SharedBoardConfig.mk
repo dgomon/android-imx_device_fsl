@@ -3,7 +3,7 @@
 KERNEL_NAME := Image.lz4
 TARGET_KERNEL_ARCH := arm64
 
-LOADABLE_KERNEL_MODULE ?= true
+LOADABLE_KERNEL_MODULE ?= false
 
 # -------@block_memory-------
 #Enable this to config 1GB ddr on evk_imx8ulp

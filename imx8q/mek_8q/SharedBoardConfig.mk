@@ -54,7 +54,7 @@ endif
 endif
 
 ifeq ($(PRODUCT_IMX_CAR),)
-  LOADABLE_KERNEL_MODULE ?= true
+  LOADABLE_KERNEL_MODULE ?= false
 endif
 
 ifeq ($(LOADABLE_KERNEL_MODULE),true)
