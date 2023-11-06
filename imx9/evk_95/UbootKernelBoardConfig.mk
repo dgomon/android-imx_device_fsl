@@ -6,11 +6,11 @@ UBOOT_POST_PROCESS := true
 TARGET_BOOTLOADER_CONFIG := imx95:imx95_19x19_evk_android_defconfig
 TARGET_BOOTLOADER_CONFIG += imx95-evk-uuu:imx95_19x19_evk_android_uuu_defconfig
 
-ifeq ($(LOADABLE_KERNEL_MODULE),true)
 TARGET_KERNEL_DEFCONFIG := gki_defconfig
-TARGET_KERNEL_GKI_DEFCONF:= imx8mp_gki.fragment
+ifeq ($(LOADABLE_KERNEL_MODULE),true)
+TARGET_KERNEL_GKI_DEFCONF:= imx95_gki.fragment
 else
-TARGET_KERNEL_DEFCONFIG := imx_v8_android_defconfig
+TARGET_KERNEL_GKI_DEFCONF:= imx_v8_android_defconfig
 endif
 
 ifeq ($(POWERSAVE),true)
