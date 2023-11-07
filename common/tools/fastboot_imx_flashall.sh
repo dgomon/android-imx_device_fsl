@@ -51,6 +51,8 @@ options:
                            ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────┤
                            │   imx93        │  dual trusty-dual evk-uuu                                                                            │
                            ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────┤
+                           │   imx95        │  dual trusty-dual evk-uuu                                                                            │
+                           ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────┤
                            │   imx7ulp      │  evk-uuu                                                                                             │
                            └────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -80,6 +82,8 @@ options:
                            │   imx8ulp      │  hdmi epdc 9x9 9x9-hdmi sof lpa lpd                                                                  │
                            ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────┤
                            │   imx93        │                                                                                                      │
+                           ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────┤
+                           │   imx95        │                                                                                                      │
                            ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────┤
                            │   imx7ulp      │  evk-mipi evk mipi                                                                                   │
                            └────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────┘
@@ -364,6 +368,7 @@ imx8qxp_uboot_feature=(dual trusty-dual mek-uuu trusty-secure-unlock-dual secure
 imx8qm_uboot_feature=(dual trusty-dual mek-uuu trusty-secure-unlock-dual secure-unlock md hdmi xen)
 imx7ulp_uboot_feature=(evk-uuu)
 imx93_uboot_feature=(dual trusty-dual evk-uuu)
+imx95_uboot_feature=(dual trusty-dual evk-uuu)
 
 imx8mm_dtb_feature=(ddr4 m4 mipi-panel mipi-panel-rm67191 8mic)
 imx8mn_dtb_feature=(mipi-panel mipi-panel-rm67191 rpmsg ddr4 ddr4-mipi-panel ddr4-mipi-panel-rm67191 ddr4-rpmsg 8mic)
@@ -373,10 +378,11 @@ imx8qxp_dtb_feature=(sof mipi-panel mipi-panel-rm67191 lvds0-panel)
 imx8qm_dtb_feature=(hdmi hdmi-rx mipi-panel mipi-panel-rm67191 md xen sof lvds1-panel revd mipi-panel-revd mipi-panel-rm67191-revd hdmi-revd hdmi-rx-revd md-revd lvds1-panel-revd sof-revd)
 imx8ulp_dtb_feature=(hdmi epdc 9x9 9x9-hdmi sof lpa lpd)
 imx93_dtb_feature=()
+imx95_dtb_feature=()
 imx7ulp_dtb_feature=(evk-mipi evk mipi)
 
 # an array to collect the supported soc_names
-supported_soc_names=(imx8qm imx8qxp imx8mq imx8mm imx8mn imx8mp imx8ulp imx93 imx7ulp)
+supported_soc_names=(imx8qm imx8qxp imx8mq imx8mm imx8mn imx8mp imx8ulp imx93 imx95 imx7ulp)
 
 if [ $# -eq 0 ]; then
     echo -e ${RED}no parameter specified, will directly exit after displaying help message${STD}
