@@ -435,42 +435,18 @@ PRODUCT_COPY_FILES += \
     $(IMX_DEVICE_PATH)/seccomp/mediaextractor-seccomp.policy:vendor/etc/seccomp_policy/mediaextractor.policy
 
 
-PRODUCT_PACKAGES += \
-    libg1 \
-    libhantro \
-    libcodec \
-    libhantro_vc8000e
-
 # imx c2 codec binary
 PRODUCT_PACKAGES += \
-    lib_vpu_wrapper \
     lib_imx_c2_videodec_common \
     lib_imx_c2_videodec \
     lib_imx_c2_videoenc_common \
     lib_imx_c2_videoenc \
+    lib_imx_c2_v4l2_dev \
+    lib_imx_c2_v4l2_dec \
+    lib_imx_c2_v4l2_enc \
     c2_component_register \
     c2_component_register_ms \
     c2_component_register_ra
-
-# dsp decoder
-PRODUCT_PACKAGES += \
-    media_codecs_c2_dsp.xml \
-    media_codecs_c2_dsp_aacp.xml \
-    media_codecs_c2_dsp_wma.xml \
-    lib_dsp_aac_dec \
-    lib_dsp_bsac_dec \
-    lib_dsp_codec_wrap \
-    lib_dsp_mp3_dec \
-    lib_dsp_wrap_arm12_android \
-    lib_dsp_mp3_dec_ext \
-    lib_dsp_codec_wrap_ext \
-    lib_aacd_wrap_dsp \
-    lib_mp3d_wrap_dsp \
-    lib_wma10d_wrap_dsp \
-    c2_component_register_dsp \
-    c2_component_register_dsp_wma \
-    c2_component_register_dsp_aacp
-
 
 PRODUCT_PACKAGES += \
     DirectAudioPlayer
@@ -481,6 +457,11 @@ INSTALL_64BIT_LIBRARY := true
 endif
 -include $(FSL_RESTRICTED_CODEC_PATH)/fsl-restricted-codec/imx_dsp/imx_dsp_8mp.mk
 endif
+
+# -------@block_vpu-------
+# VPU files
+PRODUCT_COPY_FILES += \
+    $(LINUX_FIRMWARE_IMX_PATH)/linux-firmware-imx/firmware/vpu/wave633c_codec_fw.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wave633c_codec_fw.bin
 
 # -------@block_memory-------
 
