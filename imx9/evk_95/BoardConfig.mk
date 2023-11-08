@@ -135,7 +135,7 @@ BOARD_KERNEL_BASE := 0x90400000
 CMASIZE=1184M
 # NXP default config
 BOARD_KERNEL_CMDLINE := init=/init firmware_class.path=/vendor/firmware loop.max_part=7 bootconfig
-BOARD_BOOTCONFIG += androidboot.console=ttymxc1 androidboot.hardware=nxp
+BOARD_BOOTCONFIG += androidboot.console=ttyLP0 androidboot.hardware=nxp
 
 # memory config
 BOARD_KERNEL_CMDLINE += transparent_hugepage=never
