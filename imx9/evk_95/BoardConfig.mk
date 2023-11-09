@@ -142,20 +142,13 @@ BOARD_KERNEL_CMDLINE += transparent_hugepage=never
 BOARD_KERNEL_CMDLINE += swiotlb=65536
 
 # display config
-BOARD_BOOTCONFIG += androidboot.lcd_density=240 androidboot.primary_display=imx-drm
+BOARD_BOOTCONFIG += androidboot.lcd_density=240
 
 # wifi config
 BOARD_BOOTCONFIG += androidboot.wificountrycode=CN
 BOARD_KERNEL_CMDLINE +=  moal.mod_para=wifi_mod_para.conf pci=nomsi
 
-# low memory device build config
-ifeq ($(LOW_MEMORY),true)
-BOARD_KERNEL_CMDLINE += cma=320M@0x400M-0xb80M galcore.contiguousSize=33554432
-BOARD_BOOTCONFIG += androidboot.displaymode=720p
-else
-BOARD_KERNEL_CMDLINE += cma=$(CMASIZE)@0x400M-0x1000M
-endif
-
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 # powersave config
 ifeq ($(POWERSAVE),true)
     BOARD_BOOTCONFIG += androidboot.powersave.usb=true androidboot.powersave.uclamp=true androidboot.powersave.lpa=true

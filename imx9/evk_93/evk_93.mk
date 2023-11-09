@@ -267,6 +267,12 @@ PRODUCT_SOONG_NAMESPACES += hardware/google/camera
 PRODUCT_SOONG_NAMESPACES += vendor/nxp-opensource/imx/camera
 
 # -------@block_display-------
+PRODUCT_PACKAGES += \
+    libedid
+
+PRODUCT_PACKAGES += \
+    libdisplayutils \
+    libfsldisplay
 
 PRODUCT_AAPT_CONFIG += xlarge large tvdpi hdpi xhdpi xxhdpi
 

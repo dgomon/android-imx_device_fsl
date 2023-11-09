@@ -10,7 +10,8 @@
 /dev/mxc_hantro_vc8000e   0666   media      drmrpc
 /dev/vsi_daemon_ctrl      0666   media      drmrpc
 /dev/ion                  0666   media      drmrpc
-/dev/galcore	          0666 	 system     graphics
+/dev/mali0                0666   system     graphics
+/dev/dri/card0            0666   system     graphics
 /dev/graphics/fb0         0660   system     graphics
 /dev/watchdog             0660   system     root
 /dev/mmcblk2rpmb    0600   system     system
@@ -20,6 +21,11 @@
 /dev/dma_heap/reserved    0666   system     system
 /dev/dma_heap/reserved-uncached    0666   system     system
 /dev/dma_heap/secure      0666   system     system
+
+/dev/dma_heap/linux,cma            0666 system graphics
+/dev/dma_heap/linux,cma-uncached   0666 system graphics
+/dev/dma_heap/system               0666 system graphics
+/dev/dma_heap/system-uncached      0666 system graphics
 
 /sys/devices/virtual/thermal/thermal_zone* trip_point_0_temp 0660 system system
 /sys/devices/virtual/thermal/thermal_zone* trip_point_1_temp 0660 system system

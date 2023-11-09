@@ -306,30 +306,13 @@ PRODUCT_VENDOR_PROPERTIES += ro.usb.uvc.enabled=true
 
 PRODUCT_AAPT_CONFIG += xlarge large tvdpi hdpi xhdpi xxhdpi
 
-# HWC2 HAL
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.4-service
-
 # define frame buffer count
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 
-# Gralloc HAL
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.mapper@4.0-impl.imx \
-    android.hardware.graphics.allocator-service.imx
-
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
-
-# 2d test
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_PACKAGES += 2d-test
-endif
-
-PRODUCT_PACKAGES += \
-    libg2d-opencl
 
 # Multi-Display launcher
 PRODUCT_PACKAGES += \
@@ -340,43 +323,54 @@ PRODUCT_COPY_FILES += \
 
 # -------@block_gpu-------
 PRODUCT_PACKAGES += \
-    libEGL_VIVANTE \
-    libGLESv1_CM_VIVANTE \
-    libGLESv2_VIVANTE \
-    gralloc_viv.$(TARGET_BOARD_PLATFORM) \
-    libGAL \
-    libGLSLC \
-    libVSC \
-    libgpuhelper \
-    libSPIRV_viv \
-    libvulkan_VIVANTE \
-    vulkan.$(TARGET_BOARD_PLATFORM) \
-    libCLC \
-    libLLVM_viv \
+    mali_csffw.bin \
+    arm.graphics-V4-ndk \
+    arm.graphics-V5-ndk \
+    arm.graphics-V2-ndk \
+    arm.graphics-V3-ndk \
+    arm.graphics-V1-ndk \
+    arm.mali.platform-V1-ndk \
+    arm.mali.platform-V2-ndk \
+    arm.mali.platform-V3-ndk \
+    libarm_egl_properties_sysprop \
+    libarm_gralloc_properties_sysprop \
+    libarm_mali_config_sysprops \
+    hwcomposer.drm_mappermetadata \
+    libGLES_mali \
     libOpenCL \
-    libg2d-viv \
-    libOpenVX \
-    libOpenVXU \
-    libNNVXCBinary-evis \
-    libNNVXCBinary-evis2 \
-    libNNVXCBinary-lite \
-    libOvx12VXCBinary-evis \
-    libOvx12VXCBinary-evis2 \
-    libOvx12VXCBinary-lite \
-    libNNGPUBinary-evis \
-    libNNGPUBinary-evis2 \
-    libNNGPUBinary-lite \
-    libNNGPUBinary-ulite \
-    libNNGPUBinary-nano \
-    libNNArchPerf \
-    libarchmodelSw
+    vulkan.mali
+
+
+GRALLOC_HWC_FB_DISABLE_AFBC:=1
+SOONG_CONFIG_NAMESPACES += arm_gralloc
+SOONG_CONFIG_arm_gralloc +=  gralloc_hwc_fb_disable_afbc
+SOONG_CONFIG_arm_gralloc +=  gralloc_use_ion_dma_heap
+SOONG_CONFIG_arm_gralloc +=  gralloc_use_contiguous_display_memory
+SOONG_CONFIG_arm_gralloc +=  gralloc_hwc_fb_disable_afbc
+SOONG_CONFIG_arm_gralloc +=  gralloc_hwc_force_bgra_8888
+SOONG_CONFIG_arm_gralloc_gralloc_hwc_fb_disable_afbc := 1
+SOONG_CONFIG_arm_gralloc_gralloc_use_ion_dma_heap := 1
+SOONG_CONFIG_arm_gralloc_gralloc_use_contiguous_display_memory := 1
+SOONG_CONFIG_arm_gralloc_gralloc_hwc_fb_disable_afbc := 0
+SOONG_CONFIG_arm_gralloc_gralloc_hwc_force_bgra_8888 := 1
+
+PRODUCT_PACKAGES += \
+        android.hardware.graphics.allocator@4.0-impl-arm \
+        android.hardware.graphics.allocator@4.0-service \
+        android.hardware.graphics.allocator@4.0.vndk-sp \
+        android.hardware.graphics.allocator-V1-service \
+        android.hardware.graphics.allocator-V1-arm \
+        android.hardware.graphics.composer@2.1-impl \
+        android.hardware.graphics.composer@2.1-service \
+        android.hardware.graphics.mapper@4.0-impl-arm \
+        android.hardware.graphics.mapper@4.0.vndk-sp
+
+TARGET_VENDOR_PROP += device/nxp/imx9/evk_95/arm.egl.config.prop
+TARGET_VENDOR_PROP += device/nxp/imx9/evk_95/arm.gralloc.usage.prop
 
 PRODUCT_VENDOR_PROPERTIES += \
-    ro.hardware.egl = VIVANTE
-
-# GPU openCL g2d
-PRODUCT_COPY_FILES += \
-    $(IMX_PATH)/imx/opencl-2d/cl_g2d.cl:$(TARGET_COPY_OUT_VENDOR)/etc/cl_g2d.cl
+    ro.hardware.egl = mali \
+    ro.hardware.vulkan = mali
 
 # -------@block_wifi-------
 
@@ -507,6 +501,9 @@ PRODUCT_COPY_FILES += \
 endif
 
 PRODUCT_COPY_FILES += \
+    vendor/nxp/fsl-proprietary/gpu-mali/gpu.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gralloc/gpu.xml
+
+PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.output.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.output.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml \
@@ -517,10 +514,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level-0.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.version-1_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_3.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.version-1_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2023-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
     frameworks/native/data/etc/android.software.opengles.deqp.level-2023-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
+    frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \

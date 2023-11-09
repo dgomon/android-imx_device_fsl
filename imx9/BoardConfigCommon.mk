@@ -9,7 +9,7 @@ BOARD_SOC_CLASS \
 HAVE_FSL_IMX_GPU3D \
 TARGET_HWCOMPOSER_VERSION \
 TARGET_GRALLOC_VERSION \
-PREBUILT_FSL_IMX_GPU \
+PREBUILT_FSL_IMX_GPU_MALI \
 PREBUILT_FSL_IMX_ISP \
 BOARD_SOC_TYPE \
 PRODUCT_MANUFACTURER \
@@ -191,21 +191,13 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
 TARGET_RECOVERY_UI_LIB := librecovery_ui_imx
 
-
-# -------@block_gpu-------
-# Indicate use vivante drm based egl and gralloc
-BOARD_GPU_DRIVERS := vivante
-
-# Indicate use NXP libdrm-imx or Android external/libdrm
-BOARD_GPU_LIBDRM := libdrm_imx
-
-PREBUILT_FSL_IMX_GPU := true
-SOONG_CONFIG_IMXPLUGIN_PREBUILT_FSL_IMX_GPU = true
+PREBUILT_FSL_IMX_GPU_MALI := true
+SOONG_CONFIG_IMXPLUGIN_PREBUILT_FSL_IMX_GPU_MALI = true
 
 # override some prebuilt setting if DISABLE_FSL_PREBUILT is define
 ifneq (,$(filter GPU ALL,$(DISABLE_FSL_PREBUILT)))
-    PREBUILT_FSL_IMX_GPU := false
-    SOONG_CONFIG_IMXPLUGIN_PREBUILT_FSL_IMX_GPU = false
+    PREBUILT_FSL_IMX_GPU_MALI := false
+    SOONG_CONFIG_IMXPLUGIN_PREBUILT_FSL_IMX_GPU_MALI = false
 endif
 
 # -------@block_isp-------
