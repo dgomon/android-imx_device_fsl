@@ -4,6 +4,7 @@ UBOOT_POST_PROCESS := true
 
 # u-boot target
 TARGET_BOOTLOADER_CONFIG := imx95:imx95_19x19_evk_android_defconfig
+TARGET_BOOTLOADER_CONFIG += imx95-trusty-dual:imx95_19x19_evk_android_trusty_dual_defconfig
 TARGET_BOOTLOADER_CONFIG += imx95-evk-uuu:imx95_19x19_evk_android_uuu_defconfig
 
 TARGET_KERNEL_DEFCONFIG := gki_defconfig

@@ -226,7 +226,7 @@ on post-fs-data && property:vendor.storageproxyd=trusty && property:vendor.skip.
     mkdir /data/vendor/ss 0700 system system
     restart storageproxyd
 
-service storageproxyd /vendor/bin/storageproxyd -p /data/vendor/ss -r /dev/mmcblk2rpmb -d /dev/trusty-ipc-dev0
+service storageproxyd /vendor/bin/storageproxyd -p /data/vendor/ss -r /dev/mmcblk0rpmb -d /dev/trusty-ipc-dev0
    group system
 
 on property:ro.boot.vendor.sysrq=1 && property:vendor.skip.charger_not_need=0
