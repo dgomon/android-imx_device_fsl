@@ -283,24 +283,24 @@ PRODUCT_COPY_FILES += \
 # -------@block_camera-------
 
 PRODUCT_COPY_FILES += \
-    $(IMX_DEVICE_PATH)/camera_config_imx95.json:$(TARGET_COPY_OUT_VENDOR)/etc/configs/camera_config_imx95.json \
-    $(IMX_DEVICE_PATH)/camera_config_imx95-basler-ov5640.json:$(TARGET_COPY_OUT_VENDOR)/etc/configs/camera_config_imx95-basler-ov5640.json \
-    $(IMX_DEVICE_PATH)/camera_config_imx95-4k-basler-ov5640.json:$(TARGET_COPY_OUT_VENDOR)/etc/configs/camera_config_imx95-4k-basler-ov5640.json \
-    $(IMX_DEVICE_PATH)/camera_config_imx95-only-ov5640.json:$(TARGET_COPY_OUT_VENDOR)/etc/configs/camera_config_imx95-only-ov5640.json \
-    $(IMX_DEVICE_PATH)/camera_config_imx95-os08a20-ov5640.json:$(TARGET_COPY_OUT_VENDOR)/etc/configs/camera_config_imx95-os08a20-ov5640.json \
-    $(IMX_DEVICE_PATH)/camera_config_imx95-4k-os08a20-ov5640.json:$(TARGET_COPY_OUT_VENDOR)/etc/configs/camera_config_imx95-4k-os08a20-ov5640.json \
-    $(IMX_DEVICE_PATH)/camera_config_imx95-dual-basler.json:$(TARGET_COPY_OUT_VENDOR)/etc/configs/camera_config_imx95-dual-basler.json \
     $(IMX_DEVICE_PATH)/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 
 PRODUCT_PACKAGES += \
     ap130x_ar0144_single_fw.bin
 
+# Enable vendor/nxp/fsl-proprietary/libcamera/Android.mk
+PREBUILT_LIBCAMERA := true
+PRODUCT_PACKAGES += \
+    capture \
+    libcamera-base \
+    libcamera \
+    camera.nxp \
+    camera_hal.yaml \
+    libc++_shared \
+    libyaml
+
 PRODUCT_SOONG_NAMESPACES += hardware/google/camera
 PRODUCT_SOONG_NAMESPACES += vendor/nxp-opensource/imx/camera
-
-PRODUCT_PACKAGES += \
-    media_profiles_8mp-ov5640.xml \
-    media_profiles_8mp-ispsensor-ov5640.xml
 
 # Add WebCam option in settings
 PRODUCT_VENDOR_PROPERTIES += ro.usb.uvc.enabled=true
