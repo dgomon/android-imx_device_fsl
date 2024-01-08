@@ -109,6 +109,14 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES += \
     $(KERNEL_OUT)/drivers/iio/industrialio-sw-trigger.ko \
     $(KERNEL_OUT)/drivers/iio/trigger/iio-trig-hrtimer.ko \
     $(KERNEL_OUT)/drivers/iio/trigger/iio-trig-sysfs.ko \
+    $(KERNEL_OUT)/drivers/iio/common/st_sensors/st_sensors.ko \
+    $(KERNEL_OUT)/drivers/iio/common/st_sensors/st_sensors_i2c.ko \
+    $(KERNEL_OUT)/drivers/iio/accel/st_accel.ko \
+    $(KERNEL_OUT)/drivers/iio/accel/st_accel_i2c.ko \
+    $(KERNEL_OUT)/drivers/iio/magnetometer/st_magn.ko \
+    $(KERNEL_OUT)/drivers/iio/magnetometer/st_magn_i2c.ko \
+    $(KERNEL_OUT)/drivers/iio/gyro/st_gyro.ko \
+    $(KERNEL_OUT)/drivers/iio/gyro/st_gyro_i2c.ko \
     $(KERNEL_OUT)/drivers/soc/imx/busfreq-imx8mq.ko \
     $(KERNEL_OUT)/drivers/mmc/host/cqhci.ko \
     $(KERNEL_OUT)/drivers/mmc/host/sdhci-esdhc-imx.ko \
@@ -195,6 +203,7 @@ BOARD_VENDOR_KERNEL_MODULES += \
     $(KERNEL_OUT)/sound/soc/fsl/snd-soc-fsl-sai.ko \
     $(KERNEL_OUT)/sound/soc/fsl/snd-soc-fsl-esai.ko \
     $(KERNEL_OUT)/sound/soc/codecs/snd-soc-wm8960.ko \
+    $(KERNEL_OUT)/sound/soc/codecs/snd-soc-wm8962.ko \
     $(KERNEL_OUT)/sound/soc/codecs/snd-soc-cs42xx8.ko \
     $(KERNEL_OUT)/sound/soc/codecs/snd-soc-cs42xx8-i2c.ko \
     $(KERNEL_OUT)/sound/soc/codecs/snd-soc-bt-sco.ko \
