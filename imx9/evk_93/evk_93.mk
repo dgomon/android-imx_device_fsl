@@ -371,8 +371,8 @@ PRODUCT_COPY_FILES += \
     $(LINUX_FIRMWARE_IMX_PATH)/linux-firmware-imx/firmware/epdc/epdc_ED060XH2C1.fw.nonrestricted:$(TARGET_COPY_OUT_VENDOR)/firmware/imx/epdc/epdc_ED060XH2C1.fw
 
 # NXP ap1302 camera Firmware
-PRODUCT_COPY_FILES += \
-    vendor/nxp/fsl-proprietary/isp/ap1302/ap1302.fw:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/firmware/imx/camera/ap1302.fw
+PRODUCT_PACKAGES += \
+    ap1302.fw
 
 # -------@block_bluetooth-------
 

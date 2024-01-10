@@ -112,6 +112,7 @@ BOARD_VENDOR_KERNEL_MODULES += \
 
 # NXP camera driver module
 BOARD_VENDOR_KERNEL_MODULES += \
+    $(KERNEL_OUT)/drivers/soc/imx/soc-imx9.ko \
     $(KERNEL_OUT)/sound/soc/codecs/snd-soc-wm8962.ko \
     $(KERNEL_OUT)/drivers/staging/media/imx/imx8-media-dev.ko \
     $(KERNEL_OUT)/drivers/firmware/imx/el_enclave.ko \
