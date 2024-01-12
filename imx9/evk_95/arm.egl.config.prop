@@ -51,9 +51,6 @@ ro.vendor.arm.egl.configs.r8_g8_b8_a0_24bit_yuv_special.framebuffer_target=false
 #
 # YUV configs
 #
-# ayuv
-ro.vendor.arm.egl.configs.ayuv.hal_format=0x0
-ro.vendor.arm.egl.configs.ayuv.recordable=false
 # yuyv
 ro.vendor.arm.egl.configs.yuyv.hal_format=0x102
 ro.vendor.arm.egl.configs.yuyv.recordable=true
@@ -72,9 +69,6 @@ ro.vendor.arm.egl.configs.yuv420.recordable=true
 # yvu420
 ro.vendor.arm.egl.configs.yvu420.hal_format=0x10e
 ro.vendor.arm.egl.configs.yvu420.recordable=true
-# yuv444
-ro.vendor.arm.egl.configs.yuv444.hal_format=0x109
-ro.vendor.arm.egl.configs.yuv444.recordable=true
 # y410
 ro.vendor.arm.egl.configs.y410.hal_format=0x107
 ro.vendor.arm.egl.configs.y410.recordable=true
@@ -90,6 +84,3 @@ ro.vendor.arm.egl.configs.p210.recordable=true
 # p010
 ro.vendor.arm.egl.configs.p010.hal_format=0x104
 ro.vendor.arm.egl.configs.p010.recordable=true
-# q410
-ro.vendor.arm.egl.configs.q410.hal_format=0x10a
-ro.vendor.arm.egl.configs.q410.recordable=true
