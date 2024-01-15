@@ -8,6 +8,10 @@ BOARD_VENDOR_KERNEL_MODULES += \
     $(TARGET_OUT_INTERMEDIATES)/MXMWIFI_OBJ/mlan.ko \
     $(TARGET_OUT_INTERMEDIATES)/MXMWIFI_OBJ/moal.ko
 
+#ARM GPU driver module
+BOARD_VENDOR_KERNEL_MODULES += \
+    $(KERNEL_OUT)/drivers/gpu/arm/midgard/mali_kbase.ko
+
 # -------@block_memory-------
 #Enable this to config 1GB ddr on evk_95
 LOW_MEMORY := false
