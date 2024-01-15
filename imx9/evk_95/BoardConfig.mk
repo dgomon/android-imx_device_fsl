@@ -146,7 +146,7 @@ BOARD_BOOTCONFIG += androidboot.lcd_density=240
 
 # wifi config
 BOARD_BOOTCONFIG += androidboot.wificountrycode=CN
-BOARD_KERNEL_CMDLINE +=  moal.mod_para=wifi_mod_para.conf pci=nomsi
+BOARD_KERNEL_CMDLINE +=  moal.mod_para=wifi_mod_para.conf
 
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 # powersave config
