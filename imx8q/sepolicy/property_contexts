@@ -214,6 +214,7 @@ vendor.sys.SECOND_DISPLAY_ENABLED          u:object_r:vendor_public_default_prop
 vendor.AQROOT                              u:object_r:vendor_public_default_prop:s0
 vendor.CL_NOPREPROCESS                     u:object_r:vendor_public_default_prop:s0
 ro.boot.wifivendor                         u:object_r:vendor_public_default_prop:s0
+vendor.androidui.overlay                   u:object_r:vendor_public_default_prop:s0
 
 # vendor_wifi_version
 vendor.wlan.driver.version    u:object_r:vendor_wifi_version:s0
