@@ -54,8 +54,6 @@ on property:sys.boot_completed=1
     write /dev/cpuset/system-background/cpus 0-2
 
 on post-fs-data
-    mkdir /data/vendor/isp 0771 system camera
-
     # for libcamera
     chmod 0660 /dev/media0
     chown system camera /dev/media0
@@ -83,17 +81,3 @@ on post-fs-data
     chown system camera /dev/v4l-subdev9
     chown system camera /dev/v4l-subdev10
     chown system camera /dev/v4l-subdev11
-
-on early-boot
-    export ISP_LOG_LEVEL 4
-    start isp_media_server
-
-on property:vendor.rw.camera.isp.control=0
-    stop isp_media_server
-
-on property:vendor.rw.camera.isp.control=1
-    start isp_media_server
-
-service isp_media_server /vendor/bin/isp_media_server
-    group camera
-    oneshot
