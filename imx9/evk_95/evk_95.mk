@@ -464,17 +464,6 @@ endif
 PRODUCT_PACKAGES += \
                     tflitecamerademo
 
-# NXP Demo APKs for MX95
-PRODUCT_PACKAGES += \
-                    NXP_1080p_BigFPS \
-                    NXP_1920x1080_BigFPS_Unchained \
-                    NXP_3840x1080_BigFPS \
-                    NXP_3840x1080_BigFPS_Unchained \
-                    NXP_4k_BigFPS \
-                    NXP_4k_BigFPS_Unchained \
-                    NXP_5120x1440_BigFPS \
-                    NXP_5120x1440_BigFPS_Unchained
-
 # -------@block_miscellaneous-------
 
 # Copy device related config and binary to board
