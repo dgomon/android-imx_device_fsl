@@ -12,6 +12,10 @@ BOARD_VENDOR_KERNEL_MODULES += \
 BOARD_VENDOR_KERNEL_MODULES += \
     $(KERNEL_OUT)/drivers/gpu/arm/midgard/mali_kbase.ko
 
+#AP1302 driver module
+BOARD_VENDOR_KERNEL_MODULES += \
+    $(KERNEL_OUT)/drivers/media/i2c/ap130x.ko
+
 # -------@block_memory-------
 #Enable this to config 1GB ddr on evk_95
 LOW_MEMORY := false
