@@ -731,7 +731,7 @@ echo %sdp%: boot -f %bootloader_used_by_uuu%.link >> %tmp_dir%uuu.lst
 
 
 :: for uboot by uuu which enabled SPL
-if not [%soc_name:imx8m=%] == [%soc_name%] (
+if [%soc_name:imx8q=%] == [%soc_name%] (
     :: for images need SDPU
     echo SDPU: delay 1000 >> %tmp_dir%uuu.lst
     echo SDPU: write -f %bootloader_used_by_uuu%.link -offset 0x57c00 >> %tmp_dir%uuu.lst

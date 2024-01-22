@@ -146,7 +146,7 @@ function uuu_load_uboot
     echo ${sdp}: boot -f ${bootloader_used_by_uuu}${randome_part} >> /tmp/uuu.lst${randome_part}
     tmp_files_in_uuu+=(${bootloader_used_by_uuu}${randome_part})
     # for uboot by uuu which enabled SPL
-    if [[ ${soc_name#imx8m} != ${soc_name} ]]; then
+    if [[ ${soc_name#imx8q} == ${soc_name} ]]; then
         # for images need SDPU
         echo SDPU: delay 1000 >> /tmp/uuu.lst${randome_part}
         echo SDPU: write -f ${bootloader_used_by_uuu}${randome_part} -offset 0x57c00 >> /tmp/uuu.lst${randome_part}
