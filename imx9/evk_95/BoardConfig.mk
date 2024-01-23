@@ -148,7 +148,6 @@ BOARD_BOOTCONFIG += androidboot.lcd_density=240
 BOARD_BOOTCONFIG += androidboot.wificountrycode=CN
 BOARD_KERNEL_CMDLINE +=  moal.mod_para=wifi_mod_para.conf
 
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 # powersave config
 ifeq ($(POWERSAVE),true)
     BOARD_BOOTCONFIG += androidboot.powersave.usb=true androidboot.powersave.uclamp=true androidboot.powersave.lpa=true
