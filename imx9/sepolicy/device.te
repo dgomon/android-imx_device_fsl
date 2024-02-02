@@ -13,3 +13,4 @@ type sdcard, dev_type;
 type vsi_daemon_ctrl_device, dev_type;
 type bootloader_block_device, dev_type;
 type logbuffer_device, dev_type;
+type dmabuf_cma_heap_device, dmabuf_heap_device_type, dev_type;

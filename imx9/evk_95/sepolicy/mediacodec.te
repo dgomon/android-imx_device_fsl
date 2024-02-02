@@ -1,0 +1,1 @@
+allow mediacodec dmabuf_cma_heap_device:chr_file  { open ioctl map read write };
