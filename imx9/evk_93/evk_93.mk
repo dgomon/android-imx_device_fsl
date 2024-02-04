@@ -60,7 +60,7 @@ PRODUCT_COPY_FILES += \
 # -------@block_app-------
 
 #Enable this to choose 32 bit user space build
-IMX9_BUILD_32BIT_ROOTFS := false
+IMX_BUILD_32BIT_ROOTFS := false
 
 # Set permission for GMS packages
 PRODUCT_COPY_FILES += \
@@ -373,7 +373,7 @@ PRODUCT_PACKAGES += \
     c2_component_register_ra
 
 ifeq ($(PREBUILT_FSL_IMX_CODEC),true)
-ifneq ($(IMX9_BUILD_32BIT_ROOTFS),true)
+ifneq ($(IMX_BUILD_32BIT_ROOTFS),true)
 INSTALL_64BIT_LIBRARY := true
 endif
 endif

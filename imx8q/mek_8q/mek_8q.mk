@@ -4,7 +4,7 @@ CURRENT_FILE_PATH :=  $(lastword $(MAKEFILE_LIST))
 IMX_DEVICE_PATH := $(strip $(patsubst %/, %, $(dir $(CURRENT_FILE_PATH))))
 
 #Enable this to choose 32 bit user space build
-IMX8_BUILD_32BIT_ROOTFS ?= false
+IMX_BUILD_32BIT_ROOTFS ?= false
 
 # configs shared between uboot, kernel and Android rootfs
 include $(IMX_DEVICE_PATH)/SharedBoardConfig.mk
@@ -577,7 +577,7 @@ PRODUCT_COPY_FILES += \
 
 
 ifeq ($(PREBUILT_FSL_IMX_CODEC),true)
-ifneq ($(IMX8_BUILD_32BIT_ROOTFS),true)
+ifneq ($(IMX_BUILD_32BIT_ROOTFS),true)
 INSTALL_64BIT_LIBRARY := true
 endif
 -include $(FSL_RESTRICTED_CODEC_PATH)/fsl-restricted-codec/imx_dsp/imx_dsp_8q.mk
@@ -712,7 +712,7 @@ PRODUCT_COPY_FILES += \
 
 ifneq ($(PRODUCT_IMX_CAR),true)
 # Included GMS package
-ifneq ($(filter TRUE true 1,$(IMX8_BUILD_64BIT_ROOTFS)),)
+ifeq ($(filter TRUE true 1,$(IMX_BUILD_32BIT_ROOTFS) $(IMX_BUILD_32BIT_64BIT_ROOTFS)),)
 $(call inherit-product-if-exists, vendor/partner_gms/products/gms_64bit_only.mk)
 else
 $(call inherit-product-if-exists, vendor/partner_gms/products/gms.mk)
@@ -720,7 +720,7 @@ endif
 PRODUCT_SOONG_NAMESPACES += vendor/partner_gms
 else
 # Included GAS package
-ifneq ($(filter TRUE true 1,$(IMX8_BUILD_64BIT_ROOTFS)),)
+ifeq ($(filter TRUE true 1,$(IMX_BUILD_32BIT_ROOTFS) $(IMX_BUILD_32BIT_64BIT_ROOTFS)),)
 $(call inherit-product-if-exists, vendor/partner_gas/products/gms_64bit_only.mk)
 else
 $(call inherit-product-if-exists, vendor/partner_gas/products/gms.mk)

@@ -28,7 +28,7 @@ SOONG_CONFIG_IMXPLUGIN_BOARD_USE_SENSOR_PEDOMETER = true
 # Product-specific compile-time definitions.
 #
 
-ifeq ($(IMX8_BUILD_32BIT_ROOTFS),true)
+ifeq ($(IMX_BUILD_32BIT_ROOTFS),true)
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
@@ -42,7 +42,7 @@ TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := cortex-a53
 
-ifeq ($(filter TRUE true 1,$(IMX8_BUILD_64BIT_ROOTFS)),)
+ifneq ($(filter TRUE true 1,$(IMX_BUILD_32BIT_64BIT_ROOTFS)),)
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv7-a-neon
 TARGET_2ND_CPU_ABI := armeabi-v7a
