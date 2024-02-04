@@ -335,7 +335,6 @@ PRODUCT_PACKAGES += \
     libarm_egl_properties_sysprop \
     libarm_gralloc_properties_sysprop \
     libarm_mali_config_sysprops \
-    hwcomposer.drm_mappermetadata \
     libGLES_mali \
     libOpenCL \
     vulkan.mali
@@ -352,8 +351,7 @@ SOONG_CONFIG_arm_gralloc_gralloc_hwc_force_bgra_8888 := 1
 PRODUCT_PACKAGES += \
         android.hardware.graphics.allocator-service \
         android.hardware.graphics.allocator-V2-arm \
-        android.hardware.graphics.composer@2.1-impl \
-        android.hardware.graphics.composer@2.1-service \
+        android.hardware.graphics.composer3-service.imx \
         android.hardware.graphics.mapper@4.0-impl-arm
 
 TARGET_VENDOR_PROP += device/nxp/imx9/evk_95/arm.egl.config.prop
