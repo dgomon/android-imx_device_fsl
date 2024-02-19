@@ -290,40 +290,6 @@ PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
 # -------@block_gpu-------
-#
-#PRODUCT_PACKAGES += \
-#    libEGL_VIVANTE \
-#    libGLESv1_CM_VIVANTE \
-#    libGLESv2_VIVANTE \
-#    gralloc_viv.$(TARGET_BOARD_PLATFORM) \
-#    libGAL \
-#    libGLSLC \
-#    libVSC \
-#    libgpuhelper \
-#    libSPIRV_viv \
-#    libvulkan_VIVANTE \
-#    vulkan.$(TARGET_BOARD_PLATFORM) \
-#    libCLC \
-#    libLLVM_viv \
-#    libOpenCL \
-#    libg2d-viv \
-#    libOpenVX \
-#    libOpenVXU \
-#    libNNVXCBinary-evis \
-#    libNNVXCBinary-evis2 \
-#    libNNVXCBinary-lite \
-#    libOvx12VXCBinary-evis \
-#    libOvx12VXCBinary-evis2 \
-#    libOvx12VXCBinary-lite \
-#    libNNGPUBinary-evis \
-#    libNNGPUBinary-evis2 \
-#    libNNGPUBinary-lite \
-#    libNNGPUBinary-ulite \
-#    libNNGPUBinary-nano \
-#    libNNArchPerf \
-#    libarchmodelSw
-#
-
 # ANGLE OpenGL implementation based on SwiftShader Vulkan
 PRODUCT_PACKAGES += \
     libEGL_angle \
@@ -363,10 +329,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     external/wireless-regdb/regulatory.db:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/firmware/regulatory.db \
     external/wireless-regdb/regulatory.db.p7s:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/firmware/regulatory.db.p7s
-
-# EPDC firmware
-PRODUCT_COPY_FILES += \
-    $(LINUX_FIRMWARE_IMX_PATH)/linux-firmware-imx/firmware/epdc/epdc_ED060XH2C1.fw.nonrestricted:$(TARGET_COPY_OUT_VENDOR)/firmware/imx/epdc/epdc_ED060XH2C1.fw
 
 # NXP ap1302 camera Firmware
 PRODUCT_PACKAGES += \

@@ -134,5 +134,3 @@
 
 /dev/dmabuf_imx                               u:object_r:ion_device:s0
 /dev/dma_heap/secure                          u:object_r:dmabuf_system_secure_heap_device:s0
-/dev/mali0                                    u:object_r:gpu_device:s0
-/dev/dma_heap/linux,cma                       u:object_r:dmabuf_cma_heap_device:s0

@@ -341,17 +341,12 @@ PRODUCT_PACKAGES += \
     vulkan.mali
 
 
-GRALLOC_HWC_FB_DISABLE_AFBC:=1
 SOONG_CONFIG_NAMESPACES += arm_gralloc
-SOONG_CONFIG_arm_gralloc +=  gralloc_hwc_fb_disable_afbc
-SOONG_CONFIG_arm_gralloc +=  gralloc_use_ion_dma_heap
 SOONG_CONFIG_arm_gralloc +=  gralloc_use_contiguous_display_memory
 SOONG_CONFIG_arm_gralloc +=  gralloc_hwc_fb_disable_afbc
 SOONG_CONFIG_arm_gralloc +=  gralloc_hwc_force_bgra_8888
-SOONG_CONFIG_arm_gralloc_gralloc_hwc_fb_disable_afbc := 1
-SOONG_CONFIG_arm_gralloc_gralloc_use_ion_dma_heap := 1
 SOONG_CONFIG_arm_gralloc_gralloc_use_contiguous_display_memory := 1
-SOONG_CONFIG_arm_gralloc_gralloc_hwc_fb_disable_afbc := 0
+SOONG_CONFIG_arm_gralloc_gralloc_hwc_fb_disable_afbc := 1
 SOONG_CONFIG_arm_gralloc_gralloc_hwc_force_bgra_8888 := 1
 
 PRODUCT_PACKAGES += \
