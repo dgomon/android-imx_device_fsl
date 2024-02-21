@@ -712,11 +712,19 @@ PRODUCT_COPY_FILES += \
 
 ifneq ($(PRODUCT_IMX_CAR),true)
 # Included GMS package
+ifneq ($(filter TRUE true 1,$(IMX8_BUILD_64BIT_ROOTFS)),)
+$(call inherit-product-if-exists, vendor/partner_gms/products/gms_64bit_only.mk)
+else
 $(call inherit-product-if-exists, vendor/partner_gms/products/gms.mk)
+endif
 PRODUCT_SOONG_NAMESPACES += vendor/partner_gms
 else
 # Included GAS package
+ifneq ($(filter TRUE true 1,$(IMX8_BUILD_64BIT_ROOTFS)),)
+$(call inherit-product-if-exists, vendor/partner_gas/products/gms_64bit_only.mk)
+else
 $(call inherit-product-if-exists, vendor/partner_gas/products/gms.mk)
+endif
 PRODUCT_SOONG_NAMESPACES += vendor/partner_gas
 endif
 
