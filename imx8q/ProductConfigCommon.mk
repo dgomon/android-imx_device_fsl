@@ -276,8 +276,8 @@ PRODUCT_PACKAGES += \
     libedid
 
 ifneq ($(PRODUCT_IMX_CAR),true)
-PRODUCT_PACKAGES += \
-    MultiDisplay
+PRODUCT_COPY_FILES += \
+   $(IMX_DEVICE_PATH)/display_settings.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display_settings.xml
 else
 PRODUCT_PACKAGES += \
     MultiDisplaySecondaryHomeTestLauncher
