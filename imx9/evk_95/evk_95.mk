@@ -314,9 +314,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
-# Multi-Display launcher
-PRODUCT_PACKAGES += \
-    MultiDisplay
+PRODUCT_COPY_FILES += \
+    $(IMX_DEVICE_PATH)/display_settings.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display_settings.xml
 
 PRODUCT_COPY_FILES += \
     $(IMX_DEVICE_PATH)/input-port-associations.xml:$(TARGET_COPY_OUT_VENDOR)/etc/input-port-associations.xml
