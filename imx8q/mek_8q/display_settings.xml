@@ -6,19 +6,16 @@
 <!-- Display settings for 2nd Home -->
 <display name="port:1"
     shouldShowSystemDecors="true"
-    shouldShowIme="true"
-    forcedDensity="160" />
+    shouldShowIme="true" />
 
 <!-- Display settings for 3rd Home -->
 <display name="port:2"
     shouldShowSystemDecors="true"
-    shouldShowIme="true"
-    forcedDensity="160" />
+    shouldShowIme="true" />
 
 <!-- Display settings for 4th Home -->
 <display name="port:3"
     shouldShowSystemDecors="true"
-    shouldShowIme="true"
-    forcedDensity="160" />
+    shouldShowIme="true" />
 
 </display-settings>
