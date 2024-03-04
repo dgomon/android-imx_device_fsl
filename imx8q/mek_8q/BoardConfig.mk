@@ -114,15 +114,6 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(IMX_DEVICE_PATH)/bluetooth
 # NXP 8997 BLUETOOTH
 BOARD_HAVE_BLUETOOTH_NXP := true
 
-# -------@block_sensor-------
-BOARD_USE_SENSOR_FUSION := true
-BOARD_USE_SENSOR_PEDOMETER := false
-ifeq ($(PRODUCT_IMX_CAR),true)
-    BOARD_USE_LEGACY_SENSOR := false
-else
-    BOARD_USE_LEGACY_SENSOR :=true
-endif
-
 # -------@block_kernel_bootimg-------
 
 # NXP default config

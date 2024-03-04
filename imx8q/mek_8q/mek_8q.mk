@@ -597,12 +597,6 @@ PRODUCT_PACKAGES += \
                     tflitecamerademo
 endif
 
-ifeq ($(PRODUCT_IMX_CAR),true)
-  SOONG_CONFIG_IMXPLUGIN_BOARD_USE_LEGACY_SENSOR = false
-else
-  SOONG_CONFIG_IMXPLUGIN_BOARD_USE_LEGACY_SENSOR = true
-endif
-
 # imx8 sensor HAL libs.
 ifneq ($(PRODUCT_IMX_CAR),true)
 PRODUCT_PACKAGES += \
