@@ -452,6 +452,13 @@ ifeq ($(LOW_MEMORY),true)
 $(call inherit-product, build/target/product/go_defaults.mk)
 endif
 
+# -------@block_neural_network-------
+
+# Neural Network HAL and lib
+PRODUCT_PACKAGES += \
+    NeutronFirmware.elf \
+    NeutronKernels.bin
+
 # Tensorflow lite camera demo
 PRODUCT_PACKAGES += \
                     tflitecamerademo

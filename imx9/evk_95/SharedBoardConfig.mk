@@ -12,6 +12,11 @@ BOARD_VENDOR_KERNEL_MODULES += \
 BOARD_VENDOR_KERNEL_MODULES += \
     $(KERNEL_OUT)/drivers/gpu/arm/midgard/mali_kbase.ko
 
+#neutron driver module
+BOARD_VENDOR_KERNEL_MODULES += \
+    $(KERNEL_OUT)/drivers/remoteproc/imx_neutron_rproc.ko \
+    $(KERNEL_OUT)/drivers/staging/neutron/neutron.ko
+
 #AP1302 driver module
 BOARD_VENDOR_KERNEL_MODULES += \
     $(KERNEL_OUT)/drivers/media/i2c/ap130x.ko
