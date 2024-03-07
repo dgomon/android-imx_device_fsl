@@ -360,6 +360,9 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware.egl = mali \
     ro.hardware.vulkan = mali
 
+PRODUCT_PACKAGES += \
+        libg2d-dpu
+
 # -------@block_wifi-------
 
 PRODUCT_COPY_FILES += \
