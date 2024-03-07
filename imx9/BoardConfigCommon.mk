@@ -144,7 +144,7 @@ TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 BOARD_USES_SYSTEM_DLKMIMAGE := false
 BOARD_SYSTEM_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
 TARGET_COPY_OUT_SYSTEM_DLKM := system_dlkm
-BOARD_SYSTEM_KERNEL_MODULES += $(wildcard vendor/nxp/fsl-proprietary/gki/system_dlkm_staging/flatten/lib/modules/*.ko)
+# BOARD_SYSTEM_KERNEL_MODULES += $(wildcard vendor/nxp/fsl-proprietary/gki/system_dlkm_staging/flatten/lib/modules/*.ko)
 
 BOARD_FLASH_BLOCK_SIZE := 4096
 
