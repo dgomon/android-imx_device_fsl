@@ -538,7 +538,7 @@ PRODUCT_COPY_FILES += \
 
 # trusty loadable apps
 PRODUCT_COPY_FILES += \
-    vendor/nxp/fsl-proprietary/uboot-firmware/imx8m/confirmationui-imx8mp.app:/vendor/firmware/tee/confirmationui.app
+    vendor/nxp/fsl-proprietary/uboot-firmware/imx95/confirmationui-imx95.app:/vendor/firmware/tee/confirmationui.app
 
 # Keymint configuration
 PRODUCT_COPY_FILES += \
