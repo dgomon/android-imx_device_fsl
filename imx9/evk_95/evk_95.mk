@@ -290,14 +290,11 @@ PRODUCT_PACKAGES += \
     ap130x_ar0144_single_fw.bin
 
 # Enable vendor/nxp/fsl-proprietary/libcamera/Android.mk
-PREBUILT_LIBCAMERA := true
+PREBUILT_LIBCAMERA := false
 PRODUCT_PACKAGES += \
     capture \
     libcamera-base \
     libcamera \
-    camera.nxp \
-    camera_hal.yaml \
-    libc++_shared \
     libyaml
 
 PRODUCT_SOONG_NAMESPACES += hardware/google/camera
