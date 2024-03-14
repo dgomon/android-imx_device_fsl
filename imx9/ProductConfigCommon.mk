@@ -210,24 +210,6 @@ PRODUCT_PACKAGES += \
     libimxcamerahalhwl_impl \
     libimageprocess
 
-# libcamera HAL requests provider 2.4
-PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-service_64 \
-    android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4 \
-    android.hardware.camera.provider@2.4-legacy \
-    android.hardware.camera.provider@2.4-external \
-    android.hardware.camera.device@3.5 \
-    camera.device@1.0-impl \
-    camera.device@3.2-impl \
-    camera.device@3.3-impl \
-    camera.device@3.4-external-impl \
-    camera.device@3.4-impl \
-    camera.device@3.5-external-impl \
-    camera.device@3.5-impl \
-    android.hardware.camera.device@3.6 \
-    camera.device@3.6-external-impl
-
 # external camera, AIDL
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider-V1-external-service \
