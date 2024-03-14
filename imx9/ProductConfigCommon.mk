@@ -207,6 +207,7 @@ PRODUCT_PACKAGES += \
     libgooglecamerahalutils \
     lib_profiler \
     libimxcamerahwl_impl \
+    libimxcamerahalhwl_impl \
     libimageprocess
 
 # libcamera HAL requests provider 2.4
