@@ -145,6 +145,7 @@ PRODUCT_PACKAGES += \
     lib_imx_c2_v4l2_enc \
     lib_imx_opencl_converter \
     ocl_converter.cl \
+    ocl_converter_ext.cl \
     lib_imx_c2_unia_post_filter \
     lib_imx_c2_unia_pre_filter \
     lib_imx_c2_filter_device_opencl \
