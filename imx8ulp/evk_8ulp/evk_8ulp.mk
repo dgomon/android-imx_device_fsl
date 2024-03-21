@@ -281,7 +281,12 @@ PRODUCT_SOONG_NAMESPACES += vendor/nxp-opensource/imx/camera
 
 PRODUCT_AAPT_CONFIG += xlarge large tvdpi hdpi xhdpi xxhdpi
 
-# HWC2 HAL
+# -----some limiataion of overlay/g2d in hwcomposer3 --------
+SOONG_CONFIG_NAMESPACES += nxp_hwc
+SOONG_CONFIG_nxp_hwc += g2d_ip
+SOONG_CONFIG_nxp_hwc_g2d_ip := VIV
+
+# HWC3 HAL
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer3-service.imx
 

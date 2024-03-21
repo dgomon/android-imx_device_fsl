@@ -28,7 +28,7 @@ DEVICE_PACKAGE_OVERLAYS := $(IMX_DEVICE_PATH)/overlay
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 PRODUCT_VENDOR_PROPERTIES += ro.soc.manufacturer=nxp
-PRODUCT_VENDOR_PROPERTIES += ro.soc.model=IMX8MP
+PRODUCT_VENDOR_PROPERTIES += ro.soc.model=IMX95
 PRODUCT_VENDOR_PROPERTIES += ro.crypto.metadata_init_delete_all_keys.enabled=true
 # -------@block_treble-------
 PRODUCT_FULL_TREBLE_OVERRIDE := true
@@ -344,6 +344,11 @@ SOONG_CONFIG_arm_gralloc +=  gralloc_hwc_force_bgra_8888
 SOONG_CONFIG_arm_gralloc_gralloc_use_contiguous_display_memory := 1
 SOONG_CONFIG_arm_gralloc_gralloc_hwc_fb_disable_afbc := 1
 SOONG_CONFIG_arm_gralloc_gralloc_hwc_force_bgra_8888 := 1
+
+# -----some limiataion of overlay/g2d in hwcomposer3 --------
+SOONG_CONFIG_NAMESPACES += nxp_hwc
+SOONG_CONFIG_nxp_hwc += overlay_ip
+SOONG_CONFIG_nxp_hwc_overlay_ip := DPU
 
 PRODUCT_PACKAGES += \
         android.hardware.graphics.allocator-service \
