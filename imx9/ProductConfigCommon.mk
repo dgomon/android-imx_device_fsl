@@ -230,7 +230,8 @@ endif
 ifneq ($(PRODUCT_IMX_CAR),true)
 PRODUCT_PACKAGES += \
     CubeLiveWallpapers \
-    LiveWallpapersPicker
+    LiveWallpapersPicker \
+    WallpaperPicker
 endif
 
 PRODUCT_SOONG_NAMESPACES += external/mesa3d

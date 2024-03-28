@@ -231,7 +231,8 @@ PRODUCT_PACKAGES += \
 ifneq ($(PRODUCT_IMX_CAR),true)
 PRODUCT_PACKAGES += \
     CubeLiveWallpapers \
-    LiveWallpapersPicker
+    LiveWallpapersPicker \
+    WallpaperPicker
 endif
 
 PRODUCT_PACKAGES += \
