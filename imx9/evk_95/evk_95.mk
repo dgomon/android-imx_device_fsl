@@ -330,6 +330,7 @@ PRODUCT_COPY_FILES += \
 # -------@block_gpu-------
 PRODUCT_PACKAGES += \
     mali_csffw.bin \
+    gpu.xml \
     arm.graphics-V4-ndk \
     arm.graphics-V5-ndk \
     arm.graphics-V2-ndk \
@@ -500,9 +501,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.xml
 endif
-
-PRODUCT_COPY_FILES += \
-    vendor/nxp/fsl-proprietary/gpu-mali/gpu.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gralloc/gpu.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.output.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.output.xml \
