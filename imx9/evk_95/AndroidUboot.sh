@@ -40,7 +40,11 @@ build_imx_uboot()
 	echo Building i.MX U-Boot with firmware
 	cp ${FSL_PROPRIETARY_PATH}/fsl-proprietary/uboot-firmware/imx95/oei-m33-ddr.bin ${BOARD_MKIMAGE_PATH}
 	cp ${FSL_PROPRIETARY_PATH}/fsl-proprietary/uboot-firmware/imx95/oei-m33-tcm.bin ${BOARD_MKIMAGE_PATH}
-	cp ${FSL_PROPRIETARY_PATH}/fsl-proprietary/uboot-firmware/imx95/m33_image.bin ${BOARD_MKIMAGE_PATH}
+	if [ `echo $2 | cut -d '-' -f2` = "trusty" ]; then
+		cp ${FSL_PROPRIETARY_PATH}/fsl-proprietary/uboot-firmware/imx95/m33_image_tee.bin ${BOARD_MKIMAGE_PATH}/m33_image.bin
+	else
+		cp ${FSL_PROPRIETARY_PATH}/fsl-proprietary/uboot-firmware/imx95/m33_image.bin ${BOARD_MKIMAGE_PATH}/m33_image.bin
+	fi
 	cp ${FSL_PROPRIETARY_PATH}/fsl-proprietary/mcu-sdk/imx95/imx95_mcu_demo.img ${BOARD_MKIMAGE_PATH}/m7_image.bin
 	cp ${FSL_PROPRIETARY_PATH}/ele/mx95a0-ahab-container.img ${BOARD_MKIMAGE_PATH}/mx95a0-ahab-container.img
 	cp ${UBOOT_OUT}/u-boot.$1 ${BOARD_MKIMAGE_PATH}
