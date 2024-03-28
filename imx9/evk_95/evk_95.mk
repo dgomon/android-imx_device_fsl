@@ -328,6 +328,9 @@ PRODUCT_COPY_FILES += \
     $(IMX_DEVICE_PATH)/input-port-associations.xml:$(TARGET_COPY_OUT_VENDOR)/etc/input-port-associations.xml
 
 # -------@block_gpu-------
+# include wsialloc gralloc device config
+-include $(IMX_WSI_ALLOC_PATH)/android/gralloc.device.mk
+
 PRODUCT_PACKAGES += \
     mali_csffw.bin \
     gpu.xml \
@@ -347,21 +350,10 @@ PRODUCT_PACKAGES += \
     vulkan.mali
 
 
-SOONG_CONFIG_NAMESPACES += arm_gralloc
-SOONG_CONFIG_arm_gralloc +=  gralloc_use_contiguous_display_memory
-SOONG_CONFIG_arm_gralloc +=  gralloc_hwc_fb_disable_afbc
-SOONG_CONFIG_arm_gralloc +=  gralloc_hwc_force_bgra_8888
-SOONG_CONFIG_arm_gralloc_gralloc_use_contiguous_display_memory := 1
-SOONG_CONFIG_arm_gralloc_gralloc_hwc_fb_disable_afbc := 1
-SOONG_CONFIG_arm_gralloc_gralloc_hwc_force_bgra_8888 := 1
-
 PRODUCT_PACKAGES += \
         android.hardware.graphics.allocator-service \
         android.hardware.graphics.allocator-V2-arm \
         android.hardware.graphics.mapper@4.0-impl-arm
-
-TARGET_VENDOR_PROP += device/nxp/imx9/evk_95/arm.egl.config.prop
-TARGET_VENDOR_PROP += device/nxp/imx9/evk_95/arm.gralloc.usage.prop
 
 PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware.egl = mali \
