@@ -304,6 +304,15 @@ PRODUCT_SOONG_NAMESPACES += vendor/nxp-opensource/imx/camera-hal
 
 PRODUCT_AAPT_CONFIG += xlarge large tvdpi hdpi xhdpi xxhdpi
 
+# -----some limiataion of overlay/g2d in hwcomposer3 --------
+SOONG_CONFIG_NAMESPACES += nxp_hwc
+SOONG_CONFIG_nxp_hwc += overlay_ip
+SOONG_CONFIG_nxp_hwc_overlay_ip := DPU
+
+PRODUCT_PACKAGES += \
+        android.hardware.graphics.composer3-service.imx \
+        libg2d-dpu
+
 # define frame buffer count
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3
@@ -345,15 +354,9 @@ SOONG_CONFIG_arm_gralloc_gralloc_use_contiguous_display_memory := 1
 SOONG_CONFIG_arm_gralloc_gralloc_hwc_fb_disable_afbc := 1
 SOONG_CONFIG_arm_gralloc_gralloc_hwc_force_bgra_8888 := 1
 
-# -----some limiataion of overlay/g2d in hwcomposer3 --------
-SOONG_CONFIG_NAMESPACES += nxp_hwc
-SOONG_CONFIG_nxp_hwc += overlay_ip
-SOONG_CONFIG_nxp_hwc_overlay_ip := DPU
-
 PRODUCT_PACKAGES += \
         android.hardware.graphics.allocator-service \
         android.hardware.graphics.allocator-V2-arm \
-        android.hardware.graphics.composer3-service.imx \
         android.hardware.graphics.mapper@4.0-impl-arm
 
 TARGET_VENDOR_PROP += device/nxp/imx9/evk_95/arm.egl.config.prop
@@ -362,9 +365,6 @@ TARGET_VENDOR_PROP += device/nxp/imx9/evk_95/arm.gralloc.usage.prop
 PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware.egl = mali \
     ro.hardware.vulkan = mali
-
-PRODUCT_PACKAGES += \
-        libg2d-dpu
 
 # -------@block_wifi-------
 
