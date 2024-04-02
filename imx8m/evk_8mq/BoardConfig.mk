@@ -200,6 +200,3 @@ BOARD_SEPOLICY_DIRS := \
 # change of ERR11171 when IMX_ANDROID_BUILD=true. This results in the failure of
 # cpuidle on imx8mq, therefore Android disables cpuidle on evk_8mq.
 BOARD_KERNEL_CMDLINE += cpuidle.off=1
-
-BOARD_BOOTCONFIG += \
-       androidboot.vendor.apex.com.google.android.widevine=com.google.android.widevine

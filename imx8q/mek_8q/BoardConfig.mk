@@ -274,6 +274,3 @@ endif
 ifeq ($(PRODUCT_IMX_CAR),true)
 BOARD_HAVE_IMX_EVS := true
 endif
-
-BOARD_BOOTCONFIG += \
-      androidboot.vendor.apex.com.google.android.widevine=com.google.android.widevine
