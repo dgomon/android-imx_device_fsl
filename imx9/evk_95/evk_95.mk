@@ -284,7 +284,13 @@ PREBUILT_LIBCAMERA := false
 PRODUCT_PACKAGES += \
     libcamera-base \
     libcamera \
-    libyaml
+    libyaml \
+    libnxp_ipa_cam_helper \
+    ipa_nxp_neo \
+    config.yaml \
+    os08a20.yaml \
+    nxpneo_ipa_proxy \
+    ipa_nxp_neo.so.sign
 
 PRODUCT_SOONG_NAMESPACES += hardware/google/camera
 PRODUCT_SOONG_NAMESPACES += vendor/nxp-opensource/imx/camera
