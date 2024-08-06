@@ -164,7 +164,6 @@ TARGET_BOARD_DTS_CONFIG += imx95-dsi-serdes:imx95-19x19-evk-dsi-serdes.dtb
 TARGET_BOARD_DTS_CONFIG += imx95-verdin:imx95-19x19-verdin-os08a20-isp-lt8912.dtb
 TARGET_BOARD_DTS_CONFIG += imx95-verdin-ap1302:imx95-19x19-verdin-lt8912-ap1302.dtb
 TARGET_BOARD_DTS_CONFIG += imx95-verdin-adv7535:imx95-19x19-verdin-adv7535-ap1302.dtb
-TARGET_BOARD_DTS_CONFIG += imx95-verdin-lvds-panel:imx95-19x19-verdin-lt8912-lvds-panel-ap1302.dtb
 TARGET_BOARD_DTS_CONFIG += imx95-verdin-10inch-panel-lvds:imx95-19x19-verdin-panel-cap-touch-10inch-lvds.dtb
 TARGET_BOARD_DTS_CONFIG += imx95-verdin-10inch-panel-dsi:imx95-19x19-verdin-panel-cap-touch-10inch-dsi.dtb
 TARGET_BOARD_DTS_CONFIG += imx95-verdin-mipi-panel:imx95-19x19-verdin-rm692c9.dtb
