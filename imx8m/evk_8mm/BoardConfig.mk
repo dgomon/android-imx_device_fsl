@@ -133,7 +133,7 @@ CMASIZE=800M
 
 # NXP default config
 BOARD_KERNEL_CMDLINE := init=/init firmware_class.path=/vendor/firmware loop.max_part=7 bootconfig
-BOARD_BOOTCONFIG += androidboot.console=ttymxc1 androidboot.hardware=nxp
+BOARD_BOOTCONFIG += androidboot.console=ttymxc2 androidboot.hardware=nxp
 
 # memory config
 BOARD_KERNEL_CMDLINE += transparent_hugepage=never
@@ -190,6 +190,9 @@ else
     TARGET_BOARD_DTS_CONFIG += imx8mm-ddr4:imx8mm-ddr4-evk-no-dynamic_partition.dtb
   endif
 endif
+
+TARGET_BOARD_DTS_CONFIG = imx8mm:../compulab/ucm-imx8m-mini.dtb
+TARGET_BOARD_DTS_CONFIG += imx8mm-ddr4:../compulab/ucm-imx8m-mini.dtb
 
 ALL_DEFAULT_INSTALLED_MODULES += $(BOARD_VENDOR_KERNEL_MODULES)
 
