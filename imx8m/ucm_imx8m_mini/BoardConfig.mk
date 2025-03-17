@@ -106,7 +106,7 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(IMX_DEVICE_PATH)/device_framewor
 
 # -------@block_wifi-------
 # 8mm LPDDR4 board use NXP 8987 wifi
-BOARD_WLAN_DEVICE            := nxp
+BOARD_WLAN_DEVICE            := bcmdhd
 WPA_SUPPLICANT_VERSION       := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER  := NL80211
 BOARD_HOSTAPD_DRIVER         := NL80211
@@ -115,16 +115,16 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB        := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 
 # NXP 8987 wifi support dual interface
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+WIFI_DRIVER_FW_PATH_PARAM      := "/sys/module/brcmfmac/parameters/alternative_fw_path"
 
-# NXP 8987 wifi driver module
-BOARD_VENDOR_KERNEL_MODULES += \
-    $(TARGET_OUT_INTERMEDIATES)/MXMWIFI_OBJ/mlan.ko \
-    $(TARGET_OUT_INTERMEDIATES)/MXMWIFI_OBJ/moal.ko
+#BOARD_VENDOR_KERNEL_MODULES += \
+#                            $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko \
+#                            $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmutil/brcmutil.ko
 
 # -------@block_bluetooth-------
-# NXP 8987 bluetooth
-BOARD_HAVE_BLUETOOTH_NXP := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(IMX_DEVICE_PATH)/bluetooth
+
+BOARD_HAVE_BLUETOOTH_BCM := true
+#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(IMX_DEVICE_PATH)/bluetooth
 
 # -------@block_kernel_bootimg-------
 BOARD_KERNEL_BASE := 0x40400000
@@ -137,6 +137,8 @@ BOARD_BOOTCONFIG += androidboot.console=ttymxc2 androidboot.hardware=nxp
 
 # memory config
 BOARD_KERNEL_CMDLINE += transparent_hugepage=never
+
+BOARD_KERNEL_CMDLINE += kgdboc=ttymxc2
 
 # display config
 BOARD_BOOTCONFIG += androidboot.lcd_density=240
@@ -160,41 +162,8 @@ ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
 BOARD_BOOTCONFIG += androidboot.vendor.sysrq=1
 endif
 
-ifeq ($(TARGET_USE_DYNAMIC_PARTITIONS),true)
-  # dts target for imx8mm_evk with DDR4 on board
-  ifeq ($(IMX_NO_PRODUCT_PARTITION),true)
-    # dts without product partition
-    TARGET_BOARD_DTS_CONFIG ?= imx8mm:imx8mm-evk-no-product.dtb
-    TARGET_BOARD_DTS_CONFIG += imx8mm-ddr4:imx8mm-ddr4-evk-no-product.dtb
-  else
-    TARGET_BOARD_DTS_CONFIG ?= imx8mm-ddr4:imx8mm-ddr4-evk.dtb
-    # imx8mm with MIPI-HDMI display and NXP wifi
-    TARGET_BOARD_DTS_CONFIG += imx8mm:imx8mm-evk.dtb
-    # imx8mm with rm67199 MIPI panel display and NXP wifi
-    TARGET_BOARD_DTS_CONFIG += imx8mm-mipi-panel:imx8mm-evk-rm67199.dtb
-    # imx8mm with rm67191 MIPI panel display and NXP wifi
-    TARGET_BOARD_DTS_CONFIG += imx8mm-mipi-panel-rm67191:imx8mm-evk-rm67191.dtb
-    # imx8mm with MIPI-HDMI display, NXP wifi and m4 image to support LPA
-    TARGET_BOARD_DTS_CONFIG += imx8mm-m4:imx8mm-evk-rpmsg.dtb
-    # imx8mm with 8mic module
-    TARGET_BOARD_DTS_CONFIG += imx8mm-8mic:imx8mm-evk-8mic-revE.dtb
-    # imx8mm with IW612 module
-    TARGET_BOARD_DTS_CONFIG += imx8mm-iw612:imx8mm-evk-iw612.dtb
-  endif
-else
-  ifeq ($(IMX_NO_PRODUCT_PARTITION),true)
-    TARGET_BOARD_DTS_CONFIG ?= imx8mm:imx8mm-evk-no-product-no-dynamic_partition.dtb
-    TARGET_BOARD_DTS_CONFIG += imx8mm-ddr4:imx8mm-ddr4-evk-no-product-no-dynamic_partition.dtb
-  else
-    TARGET_BOARD_DTS_CONFIG ?= imx8mm:imx8mm-evk-no-dynamic_partition.dtb
-    TARGET_BOARD_DTS_CONFIG += imx8mm-ddr4:imx8mm-ddr4-evk-no-dynamic_partition.dtb
-  endif
-endif
-
 TARGET_BOARD_DTS_CONFIG = imx8mm:../compulab/ucm-imx8m-mini.dtb
 TARGET_BOARD_DTS_CONFIG += imx8mm-ddr4:../compulab/ucm-imx8m-mini.dtb
-
-ALL_DEFAULT_INSTALLED_MODULES += $(BOARD_VENDOR_KERNEL_MODULES)
 
 # -------@block_sepolicy-------
 BOARD_SEPOLICY_DIRS := \

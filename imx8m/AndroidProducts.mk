@@ -27,17 +27,9 @@
 # Copied from build/target/product/AndroidProducts.mk
 
 PRODUCT_MAKEFILES := \
-  $(LOCAL_DIR)/evk_8mq/evk_8mq.mk \
-  $(LOCAL_DIR)/evk_8mm/evk_8mm.mk \
-  $(LOCAL_DIR)/evk_8mn/evk_8mn.mk \
-  $(LOCAL_DIR)/evk_8mp/evk_8mp.mk
+  $(LOCAL_DIR)/ucm_imx8m_mini/ucm_imx8m_mini.mk \
+  $(LOCAL_DIR)/ucm_imx8m_mini/ucm_imx8m_mini_drm.mk \
 
 COMMON_LUNCH_CHOICES := \
-  evk_8mq-trunk_staging-user \
-  evk_8mq-trunk_staging-userdebug \
-  evk_8mm-trunk_staging-user \
-  evk_8mm-trunk_staging-userdebug \
-  evk_8mn-trunk_staging-user \
-  evk_8mn-trunk_staging-userdebug \
-  evk_8mp-trunk_staging-user \
-  evk_8mp-trunk_staging-userdebug
+  ucm_imx8m_mini-eng \
+  ucm_imx8m_mini_drm-eng \

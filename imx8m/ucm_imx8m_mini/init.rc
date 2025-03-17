@@ -9,7 +9,7 @@ on early-init
 on early-init
     start early_init_sh
     # Set the host name which used in console
-    export HOSTNAME evk_8mm
+    export HOSTNAME ucm_imx8m_mini_android
 
     # Due keymaster start very early so set prop here
     # Also gatekeeper share same role for keymaster
