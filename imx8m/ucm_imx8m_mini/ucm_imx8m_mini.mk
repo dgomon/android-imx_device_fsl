@@ -17,9 +17,9 @@ include $(CONFIG_REPO_PATH)/imx8m/ProductConfigCommon.mk
 # -------@block_common_config-------
 
 # Overrides
-PRODUCT_NAME := evk_8mm
-PRODUCT_DEVICE := evk_8mm
-PRODUCT_MODEL := EVK_8MM
+PRODUCT_NAME := ucm_imx8m_mini
+PRODUCT_DEVICE := ucm_imx8m_mini
+PRODUCT_MODEL := CompuLab
 
 TARGET_BOOTLOADER_BOARD_NAME := EVK
 
@@ -94,6 +94,20 @@ PRODUCT_COPY_FILES += \
     $(LINUX_FIRMWARE_IMX_PATH)/linux-firmware-imx/firmware/sdma/sdma-imx7d.bin:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/firmware/imx/sdma/sdma-imx7d.bin \
     $(CONFIG_REPO_PATH)/common/init/init.insmod.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.insmod.sh \
     $(IMX_DEVICE_PATH)/ueventd.nxp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc
+
+# Copy device related config and binary to board
+# Sterling-LWB5 Wi-Fi Firmware
+ PRODUCT_COPY_FILES += \
+    $(IMX_DEVICE_PATH)/firmware/brcm/4339.hcd:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/4339.hcd \
+    $(IMX_DEVICE_PATH)/firmware/brcm/brcmfmac4339-sdio.txt:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/brcmfmac4339-sdio.txt \
+    $(IMX_DEVICE_PATH)/firmware/brcm/brcmfmac4339-sdio.compulab-ucm-imx8m-mini.txt:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/brcmfmac4339-sdio.compulab-ucm-imx8m-mini.txt \
+    $(IMX_DEVICE_PATH)/firmware/brcm/brcmfmac4339-sdio.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/brcmfmac4339-sdio.bin
+
+ PRODUCT_COPY_FILES += \
+    $(IMX_DEVICE_PATH)/firmware/brcm/BCM4335C0.hcd:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/BCM4335C0.hcd
+
+ PRODUCT_PACKAGES += bt_vendor.conf
+# PRODUCT_COPY_FILES += $(IMX_DEVICE_PATH)/bluetooth/bt_vendor.conf:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth/bt_vendor.conf
 
 # -------@block_storage-------
 
@@ -264,12 +278,6 @@ PRODUCT_COPY_FILES += \
     $(IMX_DEVICE_PATH)/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     $(IMX_DEVICE_PATH)/usb_audio_policy_configuration-direct-output.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration-direct-output.xml
 
-
-# -------@block_camera-------
-PRODUCT_COPY_FILES += \
-    $(IMX_DEVICE_PATH)/camera_config_imx8mm.json:$(TARGET_COPY_OUT_VENDOR)/etc/configs/camera_config_imx8mm.json \
-    $(IMX_DEVICE_PATH)/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
-
 PRODUCT_SOONG_NAMESPACES += hardware/google/camera
 PRODUCT_SOONG_NAMESPACES += vendor/nxp-opensource/imx/camera
 
@@ -356,12 +364,6 @@ PRODUCT_PACKAGES += \
 # WiFi RRO
 PRODUCT_PACKAGES += \
     WifiOverlay
-
-# NXP 8987 WiFi Firmware
-PRODUCT_COPY_FILES += \
-    vendor/nxp/imx-firmware/nxp/FwImage_8987/sdiouart8987_combo_v0.bin:vendor/firmware/sdiouart8987_combo_v0.bin \
-    vendor/nxp/imx-firmware/nxp/FwImage_IW612_SD/sduart_nw61x_v1.bin.se:vendor/firmware/sduart_nw61x_v1.bin.se \
-    vendor/nxp/imx-firmware/nxp/android_wifi_mod_para.conf:vendor/firmware/wifi_mod_para_sd8987.conf
 
 # Wifi regulatory
 PRODUCT_COPY_FILES += \
@@ -467,6 +469,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.output.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.output.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.camera.external.xml:vendor/etc/permissions/android.hardware.camera.external.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml \
