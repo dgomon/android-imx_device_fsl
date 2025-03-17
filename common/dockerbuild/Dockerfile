@@ -8,7 +8,7 @@ ARG username
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install -y tzdata git-core gnupg flex bison apt-utils build-essential zip curl zlib1g-dev liblz-dev gcc-multilib g++-multilib libc6-dev-i386 libncurses5 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig uuid uuid-dev liblzo2-2 liblzo2-dev lzop git u-boot-tools mtd-utils android-sdk-libsparse-utils android-sdk-ext4-utils device-tree-compiler gdisk m4 make libssl-dev libghc-gnutls-dev swig libdw-dev dwarves python bc cpio tar lz4 rsync ninja-build clang xxd \
+RUN apt-get update && apt-get install -y tzdata git-core gnupg flex bison apt-utils build-essential zip curl zlib1g-dev liblz-dev gcc-multilib g++-multilib libc6-dev-i386 libncurses5 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig uuid uuid-dev liblzo2-2 liblzo2-dev lzop git u-boot-tools mtd-utils android-sdk-libsparse-utils android-sdk-ext4-utils device-tree-compiler gdisk m4 make libssl-dev libghc-gnutls-dev swig libdw-dev dwarves python bc cpio tar lz4 rsync ninja-build xxd \
  && ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
  && dpkg-reconfigure -f noninteractive tzdata
 
@@ -49,6 +49,7 @@ RUN git clone -b main-kernel-build-2024 --single-branch --depth 1 https://androi
   && git checkout 1634c6a556d1f2c24897bf74156c6449486e8941
 
 ENV CLANG_PATH=/opt/prebuilt-android-clang
+ENV PATH=/opt/prebuilt-android-clang/clang-r510928/bin:$PATH
 ENV PATH=/opt/prebuilt-android-kernel-build-tools/linux-x86/bin:$PATH
 ENV PATH=/opt/prebuilt-android-rust/linux-x86/1.73.0b/bin:$PATH
 ENV PATH=/opt/prebuilt-android-clang-tools/linux-x86/bin:$PATH

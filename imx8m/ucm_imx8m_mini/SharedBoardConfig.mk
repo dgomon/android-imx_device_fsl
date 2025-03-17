@@ -4,7 +4,7 @@ KERNEL_NAME := Image.lz4
 TARGET_KERNEL_ARCH := arm64
 
 # LOADABLE_KERNEL_MODULE ?= true
-LOADABLE_KERNEL_MODULE = false
+LOADABLE_KERNEL_MODULE := false
 
 # CONFIG_VIDEO_MXC_CSI_CAMERA: mx6s_capture.ko, it's csi adapt driver which is the input of v4l2 framework
 # CONFIG_MXC_CAMERA_OV5640_MIPI_V2: ov5640_camera_mipi_v2.ko, sensor ov5640 driver, the input of mipi
@@ -186,4 +186,26 @@ PRODUCT_IMX_TRUSTY := true
 
 # -------@block_storage-------
 # the bootloader image used in dual-bootloader OTA
-BOARD_OTA_BOOTLOADERIMAGE := bootloader-imx8mm-trusty-dual.img
+#BOARD_OTA_BOOTLOADERIMAGE := bootloader-imx8mm-trusty-dual.img
+
+#Enable this to disable product partition build.
+#IMX_NO_PRODUCT_PARTITION := true
+
+# todo@gd: add to BOARD_VENDOR_KERNEL_MODULES below:
+#    $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko \
+#    $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmutil/brcmutil.ko \
+#    $(KERNEL_OUT)/sound/soc/codecs/snd-soc-wm8731.ko
+
+$(warning skipping $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko)
+$(warning skipping $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmutil/brcmutil.ko)
+$(warning skipping $(KERNEL_OUT)/sound/soc/codecs/snd-soc-wm8731.ko)
+
+# mipi-panel touch driver module
+BOARD_VENDOR_KERNEL_MODULES += \
+    $(KERNEL_OUT)/drivers/input/touchscreen/goodix_ts.ko \
+    $(KERNEL_OUT)/drivers/dma/imx-sdma.ko
+
+BT_BOARD_VENDOR_KERNEL_MODULES += \
+    $(KERNEL_OUT)/drivers/bluetooth/btbcm.ko \
+    $(KERNEL_OUT)/drivers/bluetooth/btqca.ko \
+    $(KERNEL_OUT)/drivers/bluetooth/hci_uart.ko \
