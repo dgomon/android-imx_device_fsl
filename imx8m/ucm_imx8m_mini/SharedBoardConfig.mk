@@ -201,11 +201,11 @@ $(warning skipping $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmuti
 $(warning skipping $(KERNEL_OUT)/sound/soc/codecs/snd-soc-wm8731.ko)
 
 # mipi-panel touch driver module
-BOARD_VENDOR_KERNEL_MODULES += \
-    $(KERNEL_OUT)/drivers/input/touchscreen/goodix_ts.ko \
-    $(KERNEL_OUT)/drivers/dma/imx-sdma.ko
-
-BT_BOARD_VENDOR_KERNEL_MODULES += \
-    $(KERNEL_OUT)/drivers/bluetooth/btbcm.ko \
-    $(KERNEL_OUT)/drivers/bluetooth/btqca.ko \
-    $(KERNEL_OUT)/drivers/bluetooth/hci_uart.ko \
+#BOARD_VENDOR_KERNEL_MODULES += \
+#    $(KERNEL_OUT)/drivers/input/touchscreen/goodix_ts.ko \
+#    $(KERNEL_OUT)/drivers/dma/imx-sdma.ko
+#
+#BT_BOARD_VENDOR_KERNEL_MODULES += \
+#    $(KERNEL_OUT)/drivers/bluetooth/btbcm.ko \
+#    $(KERNEL_OUT)/drivers/bluetooth/btqca.ko \
+#    $(KERNEL_OUT)/drivers/bluetooth/hci_uart.ko \
