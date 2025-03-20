@@ -15,9 +15,6 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, $(TOPDIR)device/nxp/imx8m/optee-packages.mk)
 $(call inherit-product, $(TOPDIR)$(IMX_DEVICE_PATH)/ucm_imx8m_mini.mk)
 
-TARGET_KERNEL_DEFCONFIG := ucm-imx8m-mini_defconfig
-
-
 # Overrides
 PRODUCT_NAME := ucm_imx8m_mini_drm
 
